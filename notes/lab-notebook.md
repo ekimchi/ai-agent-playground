@@ -3,6 +3,15 @@
 Add a dated entry every time you make a change to this repo. Newest entries at the top.
 
 ## 2026-09-16 — Codex
+- Kept the 25th to 75th percentile interval calculation while relabeling its display as IQR.
+
+## 2026-09-16 — Codex
+- Updated the summary to display the 25th to 75th percentile response-time interval instead of a single IQR width.
+
+## 2026-09-16 — Codex
+- Extended analysis/summarize.py to report median response time and interquartile range (IQR) for each group, using inclusive quartiles.
+
+## 2026-09-16 — Codex
 - Running `analysis/summarize.py` raised `KeyError: 'cohort'` because the script expected a `cohort` column, but `data/reaction_times.csv` uses `group`.
 - Changed the lookup from `row["cohort"]` to `row["group"]` in `load_groups`.
 - Re-ran the script successfully: control: n=10, mean=504.7 ms; treatment: n=10, mean=430.8 ms.

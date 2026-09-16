@@ -18,7 +18,10 @@ def load_groups(path):
 def main():
     groups = load_groups(DATA_PATH)
     for name, values in groups.items():
-        print(f"{name}: n={len(values)}, mean={statistics.mean(values):.1f} ms")
+        median = statistics.median(values)
+        quartiles = statistics.quantiles(values, n=4, method="inclusive")
+        p25, p75 = quartiles[0], quartiles[2]
+        print(f"{name}: n={len(values)}, mean={statistics.mean(values):.1f} ms, median={median:.1f} ms, IQR={p25:.1f}-{p75:.1f} ms")
 
 
 if __name__ == "__main__":
