@@ -2,16 +2,16 @@
 import csv
 import statistics
 from collections import defaultdict
+from pathlib import Path
 
-DATA_PATH = "data/reaction_times.csv"
-
+DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "reaction_times.csv"
 
 def load_groups(path):
     groups = defaultdict(list)
     with open(path, newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            groups[row["cohort"]].append(float(row["response_time_ms"]))
+            groups[row["group"]].append(float(row["response_time_ms"]))
     return groups
 
 
